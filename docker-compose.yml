@@ -9,7 +9,7 @@ services:
     ports:
       - "8080:8080"
     healthcheck:
-      test: curl -sS http://127.0.0.1:8080 || echo 1
+      test: curl -sS http://127.0.0.1:8080 || exit 1
       interval: 5s
       timeout: 10s
       retries: 3
@@ -25,7 +25,7 @@ services:
     depends_on:
       - sample_web_app
     healthcheck:
-      test: curl -sS http://127.0.0.1:9090 || echo 1
+      test: curl -sS http://127.0.0.1:9090 || exit 1
       interval: 5s
       timeout: 10s
       retries: 3
@@ -43,7 +43,7 @@ services:
     depends_on:
       - prometheus
     healthcheck:
-      test: curl -sS http://127.0.0.1:3000 || echo 1
+      test: curl -sS http://127.0.0.1:3000 || exit 1
       interval: 5s
       timeout: 10s
       retries: 3
